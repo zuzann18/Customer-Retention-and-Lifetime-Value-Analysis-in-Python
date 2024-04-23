@@ -26,7 +26,6 @@ Generalized Retention Model with a Grouping Variable: Significant differences in
 ### Conclusions
 The analysis shows that the telecommunication company has a strong position in retaining customers, especially among fiber optic internet users. Knowledge of CLV allows for better planning of marketing strategies and budgeting for acquiring new customers.
 
-Certainly! Here's an English version for the GitHub project description:
 
 Customer Retention Analysis for a Telecommunication Company
 Project Description
