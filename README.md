@@ -1,4 +1,6 @@
 # Customer-Retention-Analysis-for-a-Telecommunication-Company
+# Implementation of the Kaplan-Meier Model for Customer Retention Analysis
+This project utilizes the Kaplan-Meier survival analysis to estimate customer retention rates and predict churn within a telecommunications dataset. 
 ## Project Description
 This project aims to build a customer retention model for a telecommunication company using historical data. The primary objective is to estimate the retention rate, average and median time to churn, and calculate the expected Customer Lifetime Value (CLV) based on three different approaches: a simple retention model, a generalized retention model, and a generalized retention model with a grouping variable.
 
@@ -19,6 +21,17 @@ Calculated CLV for each time interval, based on the variable retention rate.
 Generalized Retention Model with a Grouping Variable
 Applied the Kaplan-Meier model with separate curves for different groups of customers, defined by the InternetService variable.
 Compared retention rates between groups to identify which services enjoy higher customer loyalty.
+
+
+
+
+## Data Preparation
+The dataset, telco_customers.csv, contains key variables necessary for survival analysis:
+
+tenure: The duration (in months) each customer has been with the service.
+cancel: A binary indicator representing churn, where 1 means the customer has churned, and 0 indicates the customer is still active.
+### Step 1: Sorting the Data
+Data is sorted by tenure to facilitate the sequential analysis inherent in survival analysis:
 ### Results
 Simple Retention Model: A high retention rate of 0.977 suggests that most customers remain with the company. The average time to churn is 44.15 months.
 Generalized Retention Model: The median time to churn is 44 months, comparable to the simple retention model.
