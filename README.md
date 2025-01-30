@@ -1,76 +1,61 @@
-# Customer-Retention-Analysis-for-a-Telecommunication-Company
-# Implementation of the Kaplan-Meier Model for Customer Retention Analysis
-This project utilizes the Kaplan-Meier survival analysis to estimate customer retention rates and predict churn within a telecommunications dataset. 
-## Project Description
-This project aims to build a customer retention model for a telecommunication company using historical data. The primary objective is to estimate the retention rate, average and median time to churn, and calculate the expected Customer Lifetime Value (CLV) based on three different approaches: a simple retention model, a generalized retention model, and a generalized retention model with a grouping variable.
 
-### General Assumptions
-Payments are made in arrears.
-Net income from the customer is $25.
-The applied discount rate is 2%.
-### Methodology
-Simple Retention Model
-Retention Rate Estimation: Using the telco_customers.csv data, the retention rate was calculated based on the ratio of remaining customers to the total number of customers over a period.
-Average Time to Churn: Calculated the average time it takes for a customer to decide to leave the service.
-Median Time to Churn: Applied methodology to calculate the median time after which half of the customers have left the service.
-Expected CLV Value: Calculated using a formula that considers the retention rate, net income from the customer, and the discount rate.
-Generalized Retention Model
-Employed the lifelines library to apply the Kaplan-Meier model to estimate the survival function of customers.
-Estimated the average time to churn and the median time to churn using the survival function.
-Calculated CLV for each time interval, based on the variable retention rate.
-Generalized Retention Model with a Grouping Variable
-Applied the Kaplan-Meier model with separate curves for different groups of customers, defined by the InternetService variable.
-Compared retention rates between groups to identify which services enjoy higher customer loyalty.
+# **Customer Retention Analysis for a Telecommunication Company**  
+### **Kaplan-Meier Model Implementation for Customer Churn Prediction**
 
+## **Project Overview**  
+This project applies **Kaplan-Meier survival analysis** to estimate customer retention rates and predict churn for a telecommunication company. By analyzing historical data, we aim to quantify retention trends and calculate **Customer Lifetime Value (CLV)** using three different modeling approaches:  
 
+1. **Simple Retention Model** – A basic estimation of retention rates and churn times.  
+2. **Generalized Retention Model** – Advanced survival analysis using the **lifelines** library.  
+3. **Generalized Retention Model with Grouping** – Segmentation by **Internet Service type** to compare customer loyalty across groups.  
 
+## **Key Assumptions**  
+- Payments are made in arrears.  
+- The average net income per customer is **$25** per period.  
+- A **2% discount rate** is applied for CLV calculations.  
 
-## Data Preparation
-The dataset, telco_customers.csv, contains key variables necessary for survival analysis:
+## **Methodology**  
 
-tenure: The duration (in months) each customer has been with the service.
-cancel: A binary indicator representing churn, where 1 means the customer has churned, and 0 indicates the customer is still active.
-### Step 1: Sorting the Data
-Data is sorted by tenure to facilitate the sequential analysis inherent in survival analysis:
-### Results
-Simple Retention Model: A high retention rate of 0.977 suggests that most customers remain with the company. The average time to churn is 44.15 months.
-Generalized Retention Model: The median time to churn is 44 months, comparable to the simple retention model.
-Generalized Retention Model with a Grouping Variable: Significant differences in retention rates depending on the type of internet service, with the highest loyalty among fiber optic users.
-### Conclusions
-The analysis shows that the telecommunication company has a strong position in retaining customers, especially among fiber optic internet users. Knowledge of CLV allows for better planning of marketing strategies and budgeting for acquiring new customers.
+### **1. Simple Retention Model**  
+- **Retention Rate**: Calculated as the ratio of active customers over time.  
+- **Time to Churn**: Average and median time before customer departure.  
+- **Expected CLV**: Derived using retention rate, net income, and discount rate.  
 
+### **2. Generalized Retention Model**  
+- Utilizes the **Kaplan-Meier survival function** to estimate churn probability.  
+- Computes **average and median churn times** using survival analysis.  
+- Predicts CLV dynamically by accounting for a variable retention rate.  
 
-Customer Retention Analysis for a Telecommunication Company
-Project Description
-This project aims to build a customer retention model for a telecommunication company using historical data. The primary objective is to estimate the retention rate, average and median time to churn, and calculate the expected Customer Lifetime Value (CLV) based on three different approaches: a simple retention model, a generalized retention model, and a generalized retention model with a grouping variable.
+### **3. Generalized Retention Model with Grouping**  
+- Applies the **Kaplan-Meier model** to different customer groups (e.g., Fiber Optic vs. DSL users).  
+- Identifies differences in **customer loyalty** based on service type.  
 
-General Assumptions
-Payments are made in arrears.
-Net income from the customer is $25.
-The applied discount rate is 2%.
-Methodology
-Simple Retention Model
-Retention Rate Estimation: Using the telco_customers.csv data, the retention rate was calculated based on the ratio of remaining customers to the total number of customers over a period.
-Average Time to Churn: Calculated the average time it takes for a customer to decide to leave the service.
-Median Time to Churn: Applied methodology to calculate the median time after which half of the customers have left the service.
-Expected CLV Value: Calculated using a formula that considers the retention rate, net income from the customer, and the discount rate.
-Generalized Retention Model
-Employed the lifelines library to apply the Kaplan-Meier model to estimate the survival function of customers.
-Estimated the average time to churn and the median time to churn using the survival function.
-Calculated CLV for each time interval, based on the variable retention rate.
-Generalized Retention Model with a Grouping Variable
-Applied the Kaplan-Meier model with separate curves for different groups of customers, defined by the InternetService variable.
-Compared retention rates between groups to identify which services enjoy higher customer loyalty.
-Results
-Simple Retention Model: A high retention rate of 0.977 suggests that most customers remain with the company. The average time to churn is 44.15 months.
-Generalized Retention Model: The median time to churn is 44 months, comparable to the simple retention model.
-Generalized Retention Model with a Grouping Variable: Significant differences in retention rates depending on the type of internet service, with the highest loyalty among fiber optic users.
-Conclusions
-The analysis shows that the telecommunication company has a strong position in retaining customers, especially among fiber optic internet users. Knowledge of CLV allows for better planning of marketing strategies and budgeting for acquiring new customers.
+## **Data Preparation**  
+The dataset (`telco_customers.csv`) includes essential features for retention analysis:  
+- **tenure**: Customer’s service duration (in months).  
+- **cancel**: Churn indicator (1 = churned, 0 = active).  
 
-### How to Run
-To run this project, follow these steps:
+Data is **sorted by tenure** to align with the sequential nature of survival analysis.  
 
-Prerequisites: Ensure Python 3.6+ is installed.
-Dependencies: Install required libraries via pip install pandas lifelines matplotlib.
-Data: Place telco_customers.csv in the project directory.
+## **Key Findings**  
+
+- **High Retention Rate (0.977)**: Most customers stay with the company.  
+- **Median Time to Churn (44 months)**: Customers typically leave after nearly 4 years.  
+- **Service-Based Loyalty**: Fiber Optic users exhibit higher retention rates.  
+
+## **Conclusion**  
+The telecommunication company demonstrates **strong customer retention**, particularly among **fiber optic users**. Insights from this analysis enable **strategic marketing decisions** and better budgeting for customer acquisition.  
+
+## **How to Run the Project**  
+
+### **Prerequisites**  
+- Python **3.6+**  
+- Required libraries:  
+  ```bash
+  pip install pandas lifelines matplotlib
+  ```
+- Place `telco_customers.csv` in the project directory.  
+
+### **Execution**  
+Run the Jupyter Notebook or Python script to generate retention insights and visualize Kaplan-Meier survival curves.  
+
